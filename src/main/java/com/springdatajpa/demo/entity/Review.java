@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,16 +26,16 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="REVIEW_ID")
-    private long reviewId;
+    private Long reviewId;
 
     @Column(name="REVIEW_TEXT")
     private String reviewText;
 
     @Column(name="MOVIE_ID",insertable = false,updatable = false)
-    private long movieId;
+    private Long movieId;
 
     @Column(name="REVIEWER_ID",insertable = false,updatable = false)
-    private long reviewerId;
+    private Long reviewerId;
 
     @Column(columnDefinition = "date", name="LAST_MODIFIED")
     @JsonFormat(pattern = "yyyy-MM-dd")
